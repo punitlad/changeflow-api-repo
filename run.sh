@@ -21,5 +21,5 @@ export CHANGEFLOW_APP_PRIVATE_KEY="$(cat "$KEY_FILE")"
 : "${CHANGEFLOW_INSTALLATION_ID:?set CHANGEFLOW_INSTALLATION_ID in .env.shared}"
 : "${CHANGEFLOW_APPROVER_TOKEN:?set CHANGEFLOW_APPROVER_TOKEN in .env.shared}"
 
-echo "==> $MODE: targeting punitlad/$CHANGEFLOW_TARGET_REPO (merge_mode=$CHANGEFLOW_MERGE_MODE)"
+echo "==> $MODE: targeting $CHANGEFLOW_TARGET_OWNER/$CHANGEFLOW_TARGET_REPO (merge_mode=$CHANGEFLOW_MERGE_MODE)"
 uvicorn changeflow.api:app --port 8000

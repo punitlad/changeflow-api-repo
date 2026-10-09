@@ -5,10 +5,11 @@ set -euo pipefail
 
 TEAM="${1:?usage: ./test-onboard.sh <team-name>}"
 BASE="${CHANGEFLOW_API_BASE:-http://localhost:8000}"
+REQUESTED_BY="${REQUESTED_BY:-$USER}"
 
 resp=$(curl -sf -X POST "$BASE/team-onboardings" \
   -H 'content-type: application/json' \
-  -d "{\"team\":\"$TEAM\",\"requested_by\":\"punitlad\"}")
+  -d "{\"team\":\"$TEAM\",\"requested_by\":\"$REQUESTED_BY\"}")
 echo "submitted: $resp"
 id=$(echo "$resp" | python3 -c 'import json,sys; print(json.load(sys.stdin)["id"])')
 
