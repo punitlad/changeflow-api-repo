@@ -41,7 +41,10 @@ ruleset config on their side rather than an ongoing workflow they have to mainta
 | `workflow_gated` | Their `pull_request_target` workflow merges if PR author is `<app-slug>[bot]` | Add the allow-list workflow | Trust logic is theirs, usually the easiest approval; make sure they check the *author*, not a label or title. **Also:** if their merge step uses the default `GITHUB_TOKEN`, the merge push won't trigger their deploy workflow (GitHub's loop-prevention) — they need a PAT there instead. Found this the hard way testing `test-repos/workflow-gated/`. |
 
 The "who opens this" gate is identity-based in all three: it works because the PR is authored by
-**our App's bot identity**, not by a human, so they can scope trust to exactly that actor.
+**our App's bot identity**, not by a human, so they can scope trust to exactly that actor. The
+same identity can also scope *what gets checked*, not just who can skip the checks — see
+`../test-repos/scoped-validation/`, which keeps `native_auto_merge`'s merge mechanism but runs
+different `ci.yml` steps depending on whether `github.actor` is the App.
 
 ## Approval: the part most likely to need a conversation with them
 
