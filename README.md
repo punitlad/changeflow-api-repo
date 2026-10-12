@@ -3,6 +3,11 @@
 Your API → opens a standardized PR in the external service's repo → gets it merged → approves the
 resulting pipeline → monitors it to a conclusion.
 
+This repo is the source of truth for the whole effort: the API itself (below), the decision
+doc comparing merge-mode options (**[`docs/pr-automation-options.md`](docs/pr-automation-options.md)
+— start here if you're deciding which approach to adopt**), and a zipped, ready-to-set-up copy of
+each validated reference repo (`examples/`).
+
 ```
 POST /team-onboardings {team, requested_by}        202 + job id
         │

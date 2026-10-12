@@ -33,6 +33,21 @@ environment with a required reviewer gating deployment).
 All four preserve requirement 3 by inheriting the target repo's existing ruleset and required
 check rather than replacing it — a human's PR still has to pass the same gate it always did.
 
+## Reference implementations
+
+Each approach is a working repo, not just a description — `../examples/` has a zip of each one
+exactly as it was last validated (including the test teams onboarded during that validation, as
+a record that it actually ran), with the README inside covering its own one-time setup. The live
+repos are also still up if you want to see the actual merged PRs and Actions run history behind
+the claims above.
+
+| Approach | Setup template | Live repo (real PRs + Actions runs) |
+|---|---|---|
+| Native auto-merge | [`native-auto-merge.zip`](../examples/native-auto-merge.zip) | [changeflow-test-native-auto-merge](https://github.com/punitlad/changeflow-test-native-auto-merge) |
+| Ruleset bypass | [`ruleset-bypass.zip`](../examples/ruleset-bypass.zip) | [changeflow-test-ruleset-bypass](https://github.com/punitlad/changeflow-test-ruleset-bypass) |
+| Workflow-gated | [`workflow-gated.zip`](../examples/workflow-gated.zip) | [changeflow-test-workflow-gated](https://github.com/punitlad/changeflow-test-workflow-gated) |
+| Scoped validation | [`scoped-validation.zip`](../examples/scoped-validation.zip) | [changeflow-test-scoped-validation](https://github.com/punitlad/changeflow-test-scoped-validation) |
+
 ## What we validated
 
 We ran all four end-to-end against live GitHub repos, including deliberately exercising the human
